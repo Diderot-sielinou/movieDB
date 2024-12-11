@@ -1,17 +1,329 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
-    <link rel="stylesheet" href="/src/style.css" />
-  </head>
-  <body>
-    <h2 style="text-align: center; color: #7c3f3f;">wkeewick</h2>
-    <div id="app">
-      <h1>bonjour</h1>
+
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="icon" type="image/svg+xml" href="/vite.svg"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <!-- box icon css -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <!-- font aweson -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+  <!-- swiper js css -->
+  <link rel="stylesheet" href="src/swiper-bundle.min.css">
+  <link rel="stylesheet" href="/src/style.css"/>
+  <title>movie DB</title>
+</head>
+
+<body>
+
+  <!-- header -->
+  <header>
+
+    <!-- navbar -->
+    <a href="index.html" class="logo">
+      <box-icon name='movie' type='solid' style="color: #fff;"></box-icon>Movies
+    </a>
+    <div class="bx bx-menu" id="menu-icon"></div>
+    <!-- menu -->
+    <ul class="navbar">
+      <li><a href="detailpage.html">Home</a></li>
+      <li><a href="search.html">movies</a></li>
+      <li><a href="#coming">coming</a></li>
+      <li><a href="#Newleter">Newleter</a></li>
+    </ul>
+    <!-- seachr box -->
+    <form action="" class="search-box">
+      <input type="text" name="seach" placeholder="seach movies" required autocomplete="false" id="search-input">
+      <button type="submit" id="search-btn">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </form>
+    <a href="#" class="btn">sing in</a>
+  </header>
+
+  <!-- home -->
+  <section class="home swiper" id="home">
+    <!-- Swiper -->
+    <div class="swiper-wrapper">
+      <div class="swiper-slide container">
+        <img src="src/assets/img/home1.jpg" alt="">
+        <div class="home-text">
+          <span>Marvel universe</span>
+          <h1>Venom: Let there <br> Be carnage</h1>
+          <a href="#" class="btn">book now</a>
+          <a href="#" class="play">
+            <i class="bx bx-play"></i>
+          </a>
+        </div>
+      </div>
+
+
+      <!-- box 2 -->
+      <div class="swiper-slide container">
+        <img src="src/assets/img/home2.jpg" alt="">
+        <div class="home-text">
+          <span>Marvel universe</span>
+          <h1>Venom: Let there <br> Be carnage</h1>
+          <a href="#" class="btn">book now</a>
+          <a href="#" class="play">
+            <i class="bx bx-play"></i>
+
+          </a>
+        </div>
+      </div>
+      <!-- box 3 -->
+      <div class="swiper-slide container">
+        <img src="src/assets/img/home3.jpg" alt="">
+        <div class="home-text">
+          <span>Marvel universe</span>
+          <h1>spider-Man: Let there <br> far from home</h1>
+          <a href="#" class="btn">book now</a>
+          <a href="#" class="play">
+            <i class="bx bx-play"></i>
+
+          </a>
+        </div>
+      </div>
+
     </div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+
+    <div class="swiper-pagination"></div>
+  </section>
+  <!-- Airing Today -->
+  <section class="coming" id="coming">
+    <h2 class="heading">Airing Today</h2>
+    <!--   coming container -->
+    <div class="coming-container swiper today">
+      <div class="swiper-wrapper" id="airing">
+        <!-- box1 -->
+        <div class="swiper-slide box ">
+          <a href="#">
+            <div class="box-img">
+              <img src="src/assets/img/coming1.jpg" alt="">
+            </div>
+          </a>
+          <h3>Venom</h3>
+          <span>1200 |action</span>
+        </div>
+        <!-- box2-->
+        <div class="swiper-slide box">
+          <div class="box-img">
+            <img src="src/assets/img/coming2.jpg" alt="">
+          </div>
+          <h3>Venom</h3>
+          <span>120 |action</span>
+        </div>
+        <!-- box3 -->
+        <div class="swiper-slide box">
+          <div class="box-img">
+            <img src="src/assets/img/coming4.jpg" alt="">
+          </div>
+          <h3>Dunikirk</h3>
+          <span>120 |Aventure</span>
+        </div>
+        <!-- box4 -->
+        <div class="swiper-slide box">
+          <div class="box-img">
+            <img src="src/assets/img/m4.jpg" alt="">
+          </div>
+          <h3>batman vs superman</h3>
+          <span>120 |action</span>
+        </div>
+
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-next"></div>
+
+    </div>
+
+  </section>
+
+  <!-- -------------------- -->
+  <!-- On The Air -->
+  <section class="coming" id="coming">
+    <h2 class="heading">On The Air</h2>
+    <!--   coming container -->
+    <div class="coming-container swiper air">
+      <div class="swiper-wrapper" id="the-air">
+        <!-- box1 -->
+        <div class="swiper-slide box ">
+          <a href="#">
+            <div class="box-img">
+              <img src="src/assets/img/coming1.jpg" alt="">
+            </div>
+          </a>
+          <h3>Venom</h3>
+          <span>1200 |action</span>
+        </div>
+        <!-- box2-->
+        <div class="swiper-slide box">
+          <div class="box-img">
+            <img src="src/assets/img/coming2.jpg" alt="">
+          </div>
+          <h3>Venom</h3>
+          <span>120 |action</span>
+        </div>
+        <!-- box3 -->
+        <div class="swiper-slide box">
+          <div class="box-img">
+            <img src="src/assets/img/coming4.jpg" alt="">
+          </div>
+          <h3>Dunikirk</h3>
+          <span>120 |Aventure</span>
+        </div>
+        <!-- box4 -->
+        <div class="swiper-slide box">
+          <div class="box-img">
+            <img src="src/assets/img/m4.jpg" alt="">
+          </div>
+          <h3>batman vs superman</h3>
+          <span>120 |action</span>
+        </div>
+        <!-- box5 -->
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-next"></div>
+    </div>
+
+  </section>
+  <!-- Popular -->
+  <section class="coming" id="coming">
+    <h2 class="heading">Popular movie</h2>
+    <!--   coming container -->
+    <div class="coming-container swiper popular">
+      <div class="swiper-wrapper" id="popular">
+        <!-- box8 -->
+        <div class="swiper-slide box">
+          <div class="box-img">
+            <img src="src/assets/img/m8.png" alt="">
+          </div>
+          <h3>Venom</h3>
+          <span>120 |action</span>
+        </div>
+        <!-- box9 -->
+        <div class="swiper-slide box">
+          <div class="box-img">
+            <img src="src/assets/img/m9.jpg" alt="">
+          </div>
+          <h3>Venom</h3>
+          <span>120 |action</span>
+        </div>
+        <!-- box10 -->
+        <div class="swiper-slide box">
+          <div class="box-img">
+            <img src="src/assets/img/m10.jpg" alt="">
+          </div>
+          <h3>Venom</h3>
+          <span>120 |action</span>
+        </div>
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-next"></div>
+    </div>
+
+  </section>
+  <!-- -------------------- -->
+  <!-- Top Rated -->
+  <section class="coming" id="coming">
+    <h2 class="heading">Top Rated</h2>
+    <!--   coming container -->
+    <div class="coming-container swiper rated">
+      <div class="swiper-wrapper" id="top-rated">
+
+        <!-- box6 -->
+        <div class="swiper-slide box">
+          <div class="box-img">
+            <img src="src/assets/img/m6.jpg" alt="">
+          </div>
+          <h3>Venom</h3>
+          <span>120 |action</span>
+        </div>
+        <!-- box7 -->
+        <div class="swiper-slide box">
+          <div class="box-img">
+            <img src="src/assets/img/m7.jpg" alt="">
+          </div>
+          <h3>Venom</h3>
+          <span>120 |action</span>
+        </div>
+        <!-- box8 -->
+        <div class="swiper-slide box">
+          <div class="box-img">
+            <img src="src/assets/img/m8.png" alt="">
+          </div>
+          <h3>Venom</h3>
+          <span>120 |action</span>
+        </div>
+        <!-- box9 -->
+        <div class="swiper-slide box">
+          <div class="box-img">
+            <img src="src/assets/img/m9.jpg" alt="">
+          </div>
+          <h3>Venom</h3>
+          <span>120 |action</span>
+        </div>
+        <!-- box10 -->
+        <div class="swiper-slide box">
+          <div class="box-img">
+            <img src="src/assets/img/m10.jpg" alt="">
+          </div>
+          <h3>Venom</h3>
+          <span>120 |action</span>
+        </div>
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-next"></div>
+    </div>
+
+  </section>
+
+  <!-- ALL -->
+  <section class="Movies" id="movies">
+    <h2 class="heading">Upcoming</h2>
+    <div class="movies-container all">
+
+    </div>
+  </section>
+
+  <!-- newsletter -->
+  <section class="newsleters">
+    <h2>suscribe</h2>
+    <form action="">
+      <input type="email" class="email" placeholder="enter email" required>
+      <input type="submit" value="suscribe" class="btn">
+    </form>
+  </section>
+
+  <!-- footer -->
+  <section class="footer">
+    <a href="index.html" class="logo">
+      <i class="bx bsx-movie"></i>Movies
+    </a>
+    <div class="social">
+      <a href="#"><i class="bx bxl-facebook"></i></a>
+      <a href="#"><i class="bx bxl-twitter"></i></a>
+      <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+      <a href="#"><i class="bx bxl-tiktok"></i></a>
+    </div>
+  </section>
+  <!-- box icon -->
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  <!-- swipwr js  -->
+  <script src="src/assets/js/swiper-bundle.min.js"></script>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
 </html>
