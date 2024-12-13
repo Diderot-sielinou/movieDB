@@ -9,6 +9,20 @@ export async function fetchJson(url) {
   throw new Error("Errreur serveur", { cause: r });
 }
 
+  // function user to fetch movies by key word enter in input
+ export async function fetchResults(keyWord) {
+    const apiUrl = `https://api.themoviedb.org/3/search/movie?api_key=8adfd9df8bd6334c722f32cb9723de43&language=en-US&query=${keyWord}&include_adult=false`
+    try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) {
+            throw new Error('Erreur lors de la récupération des résultats');
+        }
+        return response.json()
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 export class createCard {
   /**
    * @property result} []table of fetch element
@@ -53,16 +67,16 @@ class cardItem {
     a1.append(div_img);
     const image = createElement("img", {
       src: `${BASE_URL_img}${itemObject.backdrop_path}`,
-      alt: `${itemObject.name}`,
+      alt: `${itemObject.name?`${itemObject.name}`:`${itemObject.title}`}`,
     });
     div_img.append(image);
     const h3 = createElement("h3", {});
-    h3.innerText = itemObject.name;
+    h3.innerText = `${itemObject.name?`${itemObject.name}`:`${itemObject.title}`}`;
     this.#item.append(h3);
     const span = createElement("span", {
       class: "rate",
     });
-    span.innerText = `${itemObject.origin_country[0]}/${itemObject.original_language}`;
+    span.innerText = `${itemObject.origin_country?`${itemObject.origin_country[0]}`:`aldulte : ${itemObject.adult}`}/${itemObject.original_language}`;
     this.#item.append(span);
     const p = createElement("p", {
       class :'icons'

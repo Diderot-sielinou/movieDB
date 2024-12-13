@@ -2,6 +2,7 @@ import {
   createCard,
   createCardUpcoming,
   fetchJson,
+  fetchResults,
 } from "./assets/js/counter.js";
 
 
@@ -129,6 +130,33 @@ var swiper = new Swiper(".rated", {
     },
   },
 });
+var swiper = new Swiper(".ciner", {
+  spaceBetween: 20,
+  loop: true,
+  autoplay: {
+    delay: 55000,
+    disableOnInteraction: false,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  centeredSlides: true,
+  breakpoints: {
+    0: {
+      slidesPerView: 2,
+    },
+    568: {
+      slidesPerView: 3,
+    },
+    768: {
+      slidesPerView: 4,
+    },
+    968: {
+      slidesPerView: 5,
+    },
+  },
+});
 
 /* display menu */
 const menu = document.querySelector("#menu-icon");
@@ -151,11 +179,15 @@ const BASE_URL_Popular = "https://api.themoviedb.org/3/tv/popular?api_key=";
 const BASE_URL_To_Rated = "https://api.themoviedb.org/3/tv/top_rated?api_key=";
 
 /*  section to append element*/
+
 const airinghtml = document.querySelector("#airing");
 const the_aihtml = document.querySelector("#the-air");
 const popularhtml = document.querySelector("#popular");
 const top_ratedhtml = document.querySelector("#top-rated");
 const upcominHtml = document.querySelector(".all");
+const resultHtml = document.querySelector(".result")
+const pop = document.querySelector(".pop-up")
+const close = document.querySelector(".close")
 
 try {
   const airing_today = await fetchJson(`${BASE_URL_Airing_Today}${API_KEY}`);
@@ -175,7 +207,6 @@ try {
   item4.createCardElement();
 
   const upcomin = await fetchJson(`https://api.themoviedb.org/3/trending/tv/day?api_key=8adfd9df8bd6334c722f32cb9723de43`);
-  console.log(upcomin.results);
   const item5 = new createCardUpcoming(upcomin.results, upcominHtml);
   item5.createCardElement();
 } catch (e) {
@@ -185,13 +216,32 @@ try {
 const input = document.querySelector("#search-input")
 console.log(input)
 const button = document.querySelector("#search-btn")
-console.log(button)
 
-// document.querySelector(".search-box").addEventListener("submit",(e)=>{
-//   e.preventDefault()
-//   const searchValue = document.querySelector("#search-input").value
-//   window.location = 
-// })
+
+ document.querySelector(".search-box").addEventListener("submit",(e)=>{
+  e.preventDefault()
+  const searchValue = document.querySelector("#search-input").value
+  // console.log(searchValue);
+  // document.querySelector("#search-input").value = "";
+   fetchResults(searchValue).then((data)=>{
+    if(data.results.length>0){
+      const item6 = new createCard(data.results,resultHtml)
+      item6.createCardElement()
+      pop.classList.toggle("active")
+      console.log(resultHtml)
+    }else{
+      console.log("pas de resultat")
+    }
+   });
+  
+})
+
+close.addEventListener("click",()=>{
+  pop.classList.toggle("active")
+})
+
+
+
 
 // document.getElementById('searchForm').addEventListener('submit', function(event) {
 //   event.preventDefault(); // Empêche le rechargement de la page

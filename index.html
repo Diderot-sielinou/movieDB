@@ -2,16 +2,16 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8"/>
-  <link rel="icon" type="image/svg+xml" href="/vite.svg"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- box icon css -->
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <!-- font aweson -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
   <!-- swiper js css -->
   <link rel="stylesheet" href="src/swiper-bundle.min.css">
-  <link rel="stylesheet" href="/src/style.css"/>
+  <link rel="stylesheet" href="/src/style.css" />
   <title>movie DB</title>
 </head>
 
@@ -22,13 +22,13 @@
 
     <!-- navbar -->
     <a href="index.html" class="logo">
-      <box-icon name='movie' type='solid' style="color: #fff;"></box-icon>Movies
+      <box-icon name='movie' type='solid' style="color: #fff;"></box-icon> SaintStream
     </a>
     <div class="bx bx-menu" id="menu-icon"></div>
     <!-- menu -->
     <ul class="navbar">
-      <li><a href="detailpage.html">Home</a></li>
-      <li><a href="search.html">movies</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#">movies</a></li>
       <li><a href="#coming">coming</a></li>
       <li><a href="#Newleter">Newleter</a></li>
     </ul>
@@ -51,10 +51,12 @@
         <div class="home-text">
           <span>Marvel universe</span>
           <h1>Venom: Let there <br> Be carnage</h1>
+         <div class="hom-btn">
           <a href="#" class="btn">book now</a>
           <a href="#" class="play">
             <i class="bx bx-play"></i>
           </a>
+         </div>
         </div>
       </div>
 
@@ -65,11 +67,12 @@
         <div class="home-text">
           <span>Marvel universe</span>
           <h1>Venom: Let there <br> Be carnage</h1>
-          <a href="#" class="btn">book now</a>
-          <a href="#" class="play">
-            <i class="bx bx-play"></i>
-
-          </a>
+          <div class="hom-btn">
+            <a href="#" class="btn">book now</a>
+            <a href="#" class="play">
+              <i class="bx bx-play"></i>
+            </a>
+          </div>
         </div>
       </div>
       <!-- box 3 -->
@@ -78,17 +81,70 @@
         <div class="home-text">
           <span>Marvel universe</span>
           <h1>spider-Man: Let there <br> far from home</h1>
-          <a href="#" class="btn">book now</a>
-          <a href="#" class="play">
-            <i class="bx bx-play"></i>
-
-          </a>
+          <div class="hom-btn">
+            <a href="#" class="btn">book now</a>
+            <a href="#" class="play">
+              <i class="bx bx-play"></i>
+            </a>
+          </div>
         </div>
       </div>
 
     </div>
 
     <div class="swiper-pagination"></div>
+  </section>
+  <section class="image-log">
+    <div class="logo-container swiper ciner">
+      <div class="logo-wrape swiper-wrapper">
+        <!-- log1 -->
+        <div class="box log swiper-slide">
+          <img src="src/assets/img/logo/netflix.{format}.jpg" alt="netflix">
+        </div>
+        <!-- log1 -->
+        <div class="box log swiper-slide">
+          <img src="src/assets/img/logo/altbalaji.{format}.jpg" alt="netflix">
+        </div>
+        <!-- log2 -->
+        <div class="box log swiper-slide">
+          <img src="src/assets/img/logo/amazoncrunchyroll.{format}.jpg" alt="netflix">
+        </div>
+        <!-- log3 -->
+        <div class="box log swiper-slide">
+          <img src="src/assets/img/logo/appletvplus.{format}.jpg" alt="netflix">
+        </div>
+        <!-- log4 -->
+        <div class="box log swiper-slide">
+          <img src="src/assets/img/logo/guidedoc.{format}.jpg" alt="netflix">
+        </div>
+        <!-- log5 -->
+        <div class="box log swiper-slide">
+          <img src="src/assets/img/logo/itunes.{format}.jpg" alt="netflix">
+        </div>
+        <!-- log6 -->
+        <div class="box log swiper-slide">
+          <img src="src/assets/img/logo/sonyliv.{format}.jpg" alt="netflix">
+        </div>
+        <!-- log7 -->
+        <div class="box log swiper-slide">
+          <img src="src/assets/img/logo/sunnxt.{format}.jpg" alt="netflix">
+        </div>
+        <!-- log6 -->
+        <div class="box log swiper-slide">
+          <img src="src/assets/img/logo/tubitv.{format}.jpg" alt="netflix">
+        </div>
+        <!-- log6 -->
+        <div class="box log swiper-slide">
+          <img src="src/assets/img/logo/zee5.{format}.jpg" alt="netflix">
+        </div>
+        <!-- log6 -->
+        <div class="box log swiper-slide">
+          <img src="src/assets/img/logo/amazonprimevideo.{format}.jpg" alt="netflix">
+        </div>
+
+      </div>
+      <div class="swiper-button-next"></div>
+    </div>
   </section>
   <!-- Airing Today -->
   <section class="coming" id="coming">
@@ -297,6 +353,14 @@
 
     </div>
   </section>
+  <!-- pop-ou -->
+  <section class="pop-up">
+    <h2 class="heading">result</h2>
+    <div class="movies-container result">
+
+    </div>
+    <div class="close"> x </div>
+  </section>
 
   <!-- newsletter -->
   <section class="newsleters">
@@ -306,18 +370,33 @@
       <input type="submit" value="suscribe" class="btn">
     </form>
   </section>
-
+  <hr>
   <!-- footer -->
   <section class="footer">
-    <a href="index.html" class="logo">
-      <i class="bx bsx-movie"></i>Movies
-    </a>
-    <div class="social">
-      <a href="#"><i class="bx bxl-facebook"></i></a>
-      <a href="#"><i class="bx bxl-twitter"></i></a>
-      <a href="#"><i class='bx bxl-instagram-alt'></i></a>
-      <a href="#"><i class="bx bxl-tiktok"></i></a>
+
+    <div class="foot-contaainer">
+      <div class="foot-text">
+        <h3>Our platform is trusted by millions & features best updated movies
+          all around the world.</h3>
+      </div>
+      <div class="social">
+        <div class="foot-nav">
+          Home / Discover / Influence / Release
+        </div>
+        <div class="social-icon">
+          <a href="#"><i class="bx bxl-facebook"></i></a>
+          <a href="#"><i class="bx bxl-twitter"></i></a>
+          <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+          <a href="#"><i class="bx bxl-tiktok"></i></a>
+        </div>
+      </div>
     </div>
+    <div class="last-text">
+      <div class="first-text"><span>Privacy policy</span> <span>Term of service</span> <span>Language</span> </div>
+      <div class="sec-text">© 2023</div>
+
+    </div>
+
   </section>
   <!-- box icon -->
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
