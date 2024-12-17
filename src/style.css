@@ -5,12 +5,14 @@
 :root {
   --bg-color: #fff;
   --main-color: #00925d;
-  --text-color: #020307;
+  /* --text-color: rgb(2, 3, 7); */
+  --text-color: #0d0c10;
+
   --color: #00925d;
 }
 
 * {
-  font-family: "Poppins", sans-serif;
+  font-family: Poppins, sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -40,6 +42,21 @@ header {
   justify-content: space-between;
   padding: 20px 100px;
   transition: 0.5s;
+}
+
+.favori button {
+  background: transparent;
+  border-radius: 10px;
+  border: 1px solid var(--color);
+  color: var(--bg-color);
+  font-size: 1rem;
+  transition: all 0.4s ease-in-out;
+}
+
+.favori button:hover {
+  background: var(--color);
+  border: 1px solid var(--bg-color);
+  cursor: pointer;
 }
 
 .logo {
@@ -140,11 +157,21 @@ header {
 
 .container {
   width: 100%;
-  min-height: 740px;
+  min-height: 750px;
   position: relative;
   display: flex;
   align-items: center;
   background: rgba(2, 3, 7, 0.4);
+}
+
+.container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to top, rgba(13, 12, 16,1),rgba(13, 12, 16,0));
 }
 
 .container img {
@@ -183,25 +210,59 @@ header {
   text-align: left;
   z-index: 1000;
   padding: 0 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 45%;
+  position: absolute;
+  top: 40%;
+
+  .home-episode {
+    color: #a9a9a9;
+    font-style: italic;
+  }
+
+  & span {
+    background: #000;
+    width: fit-content;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+
+  }
+
+  .text {
+    text-align: left;
+  }
 }
 
 .home-text span {
   color: var(--bg-color);
   font-weight: 500;
-  text-transform: uppercase;
 }
 
 .home-text h1 {
   color: var(--bg-color);
-  font-size: 4rem;
+  font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
 }
 
 .hom-btn {
   display: flex;
   align-items: center;
   gap: 10px;
+
+  .watch {
+    background: #28262d;
+  }
+
+  .addlist {
+    background: none;
+    border: 2px solid var(--bg-color);
+
+  }
 }
 
 .play .bx {
@@ -455,8 +516,11 @@ header {
   transition: 0.4s ease-out;
 }
 
+.act {
+  background: var(--main-color);
+}
+
 .add-list:hover {
-  color: var(--text-color);
   transform: scale(1.5);
 }
 
@@ -486,6 +550,7 @@ header {
   bottom: 7%;
   width: 100%;
   padding: 0 0 0 120px;
+  z-index: 1;
 
   & p {
     color: #a9a9a9;

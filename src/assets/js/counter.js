@@ -93,7 +93,8 @@ class cardItem {
     span2.innerText = itemObject.vote_average;
     p.append(span2);
     let icon = createElement('button',{
-      class:'add-list'
+      class:'add-list',
+      data_id:`${itemObject.id}`
     })
     icon.innerHTML =`<box-icon name='bookmark-star' type='solid' color='#d61010' ></box-icon>`
     p.append(icon);
@@ -185,9 +186,10 @@ class cardItemUcoming {
     span2.innerText = itemObject.vote_average;
     p.append(span2);
     let icon = createElement('button',{
-      class:'add-list'
+      class:'add-list',
+      data_id:`${itemObject.id}`
     })
-    icon.innerHTML =`<box-icon name='bookmark-star' type='solid' color='#d61010' ></box-icon>`
+    icon.innerHTML =`<box-icon name='bookmark-star'class="book" type='solid' color='#d61010' ></box-icon>`
     p.append(icon);
   }
 
@@ -200,4 +202,23 @@ class cardItemUcoming {
     }
 
   }
+}
+
+/* favories function */
+
+export async function fetchTvById(movieId) {
+  const API_KEY = "8adfd9df8bd6334c722f32cb9723de43";
+  const url = `https://api.themoviedb.org/3/tv/${movieId}?api_key=${API_KEY}&language=fr-FR`;
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error("Erreur lors de la récupération des détails du film");
+    }
+    const movieFavorie = await response.json();
+    return movieFavorie
+  } catch (error) {
+    console.error(error);
+  }
+
+
 }
