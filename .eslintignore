@@ -1,0 +1,7 @@
+# .eslintignore
+path/to/your/file.yml
+
+# Ignorer tous les fichiers .test.js
+  *.yml
+   *.js
+

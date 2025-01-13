@@ -1,36 +1,36 @@
-import { createCard, fetchJson } from "./counter";
+import { createCard, fetchJson } from './counter'
 
 // function to get id in url
-function getMovieIdFromUrl() {
-  const params = new URLSearchParams(window.location.search);
-  return params.get("detail_id");
+function getMovieIdFromUrl () {
+  const params = new URLSearchParams(window.location.search)
+  return params.get('detail_id')
 }
 
-const API_KEY = "8adfd9df8bd6334c722f32cb9723de43";
+const API_KEY = '8adfd9df8bd6334c722f32cb9723de43'
 
 // function fetch movie by id
-async function fetchMovieDetails(movieId) {
-  const API_KEY = "8adfd9df8bd6334c722f32cb9723de43";
-  const url = `https://api.themoviedb.org/3/tv/${movieId}?api_key=${API_KEY}&language=fr-FR`;
+async function fetchMovieDetails (movieId) {
+  const API_KEY = '8adfd9df8bd6334c722f32cb9723de43'
+  const url = `https://api.themoviedb.org/3/tv/${movieId}?api_key=${API_KEY}&language=fr-FR`
 
   try {
-    const response = await fetch(url);
+    const response = await fetch(url)
     if (!response.ok) {
-      throw new Error("Erreur lors de la récupération des détails du film");
+      throw new Error('Erreur lors de la récupération des détails du film')
     }
-    const movieDetails = await response.json();
-    console.log(movieDetails);
-    displayMovieDetails(movieDetails);
+    const movieDetails = await response.json()
+    console.log(movieDetails)
+    displayMovieDetails(movieDetails)
   } catch (error) {
-    console.error(error);
-    document.querySelector(".detail").innerText =
-      "Erreur lors de la récupération des détails du film.";
+    console.error(error)
+    document.querySelector('.detail').innerText =
+      'Erreur lors de la récupération des détails du film.'
   }
 }
 
-//Fonction pour afficher les détails du film sur la page
-function displayMovieDetails(movie) {
-  const movieDetailsDiv = document.querySelector(".view");
+// Fonction pour afficher les détails du film sur la page
+function displayMovieDetails (movie) {
+  const movieDetailsDiv = document.querySelector('.view')
   console.log(movieDetailsDiv)
   movieDetailsDiv.innerHTML = `
   <section class=" swiper" id="home">
@@ -59,68 +59,67 @@ function displayMovieDetails(movie) {
       </section>
       <div class="overview">
         <span>story line</span>
-        <p class="descr">${movie.overview?`${movie.overview}`:"no description"}</p>
+        <p class="descr">${movie.overview ? `${movie.overview}` : 'no description'}</p>
       </div>
-  `;
+  `
 }
 
-function fetct(simlar_url,similarHtmlElemnt){
-  fetchJson(simlar_url).then(data=>{
+function fetct (simlar_url, similarHtmlElemnt) {
+  fetchJson(simlar_url).then(data => {
     console.log(data)
     console.log(data.results)
-    if(data.results.length>0){
+    if (data.results.length > 0) {
       console.log(data.results)
-      const item7 = new createCard(data.results,similarHtmlElemnt)
-      item7.createCardElement();
-    }else{
-      console.log("no movies")
-      similarHtmlElemnt.innerText="no similar for this movie"
-
+      const item7 = new createCard(data.results, similarHtmlElemnt)
+      item7.createCardElement()
+    } else {
+      console.log('no movies')
+      similarHtmlElemnt.innerText = 'no similar for this movie'
     }
   })
 }
 
 window.onload = function () {
-  const similarHtmlElemnt = document.querySelector("#similar")
-  const movieId = getMovieIdFromUrl();
-  console.log(movieId);
+  const similarHtmlElemnt = document.querySelector('#similar')
+  const movieId = getMovieIdFromUrl()
+  console.log(movieId)
   if (movieId) {
-    fetchMovieDetails(movieId);
+    fetchMovieDetails(movieId)
   } else {
-    console.log("erreur");
+    console.log('erreur')
     // document.getElementById('movie-details').innerText = 'Aucun ID de film trouvé dans lURL.';
   }
   const simlar_url = `https://api.themoviedb.org/3/tv/${movieId}/similar?api_key=${API_KEY}`
 
-  fetct(simlar_url,similarHtmlElemnt);
-};
+  fetct(simlar_url, similarHtmlElemnt)
+}
 
 /* similar slider */
 
-var swiper = new Swiper(".simila", {
+const swiper = new Swiper('.simila', {
   spaceBetween: 20,
   loop: true,
   autoplay: {
     delay: 55000,
-    disableOnInteraction: false,
+    disableOnInteraction: false
   },
   navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
   },
   centeredSlides: true,
   breakpoints: {
     0: {
-      slidesPerView: 2,
+      slidesPerView: 2
     },
     568: {
-      slidesPerView: 3,
+      slidesPerView: 3
     },
     768: {
-      slidesPerView: 4,
+      slidesPerView: 4
     },
     968: {
-      slidesPerView: 5,
-    },
-  },
-});
+      slidesPerView: 5
+    }
+  }
+})

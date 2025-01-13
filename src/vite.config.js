@@ -1,8 +1,7 @@
 export default {
-  root: "./src/index.html",
+  root: './src/index.html',
   build: {
-    outDir: "../dist",
-    emptyOutDir: true,
-  },
-};
-
+    outDir: '../dist',
+    emptyOutDir: true
+  }
+}
